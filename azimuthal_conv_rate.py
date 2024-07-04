@@ -1,9 +1,17 @@
+"""
+The code is for generate azimuthal convection rate within a circle.
+Can be used for the keogram plot of convection channels.
+"""
+
+# Import analysaotr first
+
 import sys
-sys.path.append('/users/taoshi11/analysator/')
+sys.path.append('~/analysator/')
 import pytools as pt
 import numpy as np
-sys.path.append('/users/taoshi11/analysator/pyCalculations')
+# sys.path.append('/users/taoshi11/analysator/pyCalculations')
 # import cutthrough.py
+
 
 def get_bulk(name):
     filepath = '/scratch/project_2000203/3D/FHA/bulk1/'
