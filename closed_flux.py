@@ -1,5 +1,6 @@
 import sys
-sys.path.append('/users/taoshi11/analysator/')
+# sys.path.append('/users/taoshi11/analysator/')
+sys.path.insert(0, '/home/taoshi/analysator')
 import pytools as pt
 import numpy as np
 import matplotlib as mpl
@@ -10,7 +11,8 @@ from matplotlib import cm
 
 
 def get_bulk(name):
-    filepath = '/scratch/project_2000203/3D/FHA/bulk1/'
+    # filepath = '/scratch/project_2000203/3D/FHA/bulk1/'
+    filepath = '/wrk-vakka/group/spacephysics/vlasiator/3D/FHA/bulk1/'
     filename = filepath+name
     
     f = pt.vlsvfile.VlsvReader(file_name = filename)
@@ -128,7 +130,7 @@ def get_MLT_value(coords):
 #     }
 
 def main():
-    I = np.arange(800,1612,1)
+    I = np.arange(501,1613,1)
     # I = np.arange(800,1600,10)
     # I = np.arange(800,801,1)
     Bflux_total = np.zeros((len(I),24))
@@ -227,7 +229,7 @@ def main():
 
 
     # np.savetxt('../../output/Bflux/Bflux_total_new.csv',Bflux_total,delimiter=',')
-    np.save('../../output/Bflux/Bflux_total_MLT1h.npy', Bflux_total)
+    np.save('/home/taoshi/output/Bflux_total_MLT1h.npy', Bflux_total)
     # gif_filename = "../../output/Bflux/polar_Bz/Bflux_polarbar.gif"
     # imageio.mimsave(gif_filename,images,duration=0.2)
 

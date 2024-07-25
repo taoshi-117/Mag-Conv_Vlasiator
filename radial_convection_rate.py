@@ -1,10 +1,12 @@
 import sys
-sys.path.append('/users/taoshi11/analysator/')
+#sys.path.append('/users/taoshi11/analysator/')
+sys.path.insert(0, '/home/taoshi/analysator')
 import pytools as pt
 import numpy as np
 
 def get_bulk(name):
-    filepath = '/scratch/project_2000203/3D/FHA/bulk1/'
+    #filepath = '/scratch/project_2000203/3D/FHA/bulk1/'
+    filepath = '/wrk-vakka/group/spacephysics/vlasiator/3D/FHA/bulk1/'
     filename = filepath+name
     
     f = pt.vlsvfile.VlsvReader(file_name = filename)
@@ -191,7 +193,8 @@ def find_closedandeq_coords(f):
 def main():
     
     # I = np.arange(1000,1001,1)
-    I = np.arange(800,1612,1)
+    # I = np.arange(800,1612,1)
+    I = np.arange(501,1613,1)
     # I = np.array([800,900,1000])
 
     K = 24
@@ -275,7 +278,7 @@ def main():
         
 
     # np.savetxt('../../output/Bflux/B_radial_conv_rate/radial_conv_rate.csv',flux_change,delimiter=',')
-    np.save('../../output/Bflux/B_radial_conv_rate/radial_conv_rate_MLT1h.npy',flux_change)
+    np.save('/home/taoshi/output/radial_conv_rate_MLT1h.npy',flux_change)
 
 
 

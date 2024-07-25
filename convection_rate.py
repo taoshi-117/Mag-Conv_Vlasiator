@@ -1,5 +1,6 @@
 import sys
-sys.path.append('/users/taoshi11/analysator/')
+# sys.path.append('/users/taoshi11/analysator/')
+sys.path.insert(0, '/home/taoshi/analysator')
 import pytools as pt
 import numpy as np
 # import matplotlib.pyplot as plt
@@ -18,7 +19,8 @@ def flux_change_rate(Bflux_total):
     return rate
 
 def get_bulk(name):
-    filepath = '/scratch/project_2000203/3D/FHA/bulk1/'
+    # filepath = '/scratch/project_2000203/3D/FHA/bulk1/'
+    filepath = '/wrk-vakka/group/spacephysics/vlasiator/3D/FHA/bulk1/'
     filename = filepath+name
     
     f = pt.vlsvfile.VlsvReader(file_name = filename)
@@ -215,7 +217,8 @@ def main():
 
 
     # Calculate the flux transport rate between MLT sectors
-    I = np.arange(800,1612,1)
+    # I = np.arange(800,1612,1)
+    I = np.arange(501, 1613, 1)     # all files in bulk1
     # I = np.arange(900,901,1)
     # I = np.arange(1150,1151,1)
 
@@ -301,7 +304,8 @@ def main():
     # np.savetxt('../../output/Bflux/Bconvection_rate/convection_rate_total.csv',flux_change,delimiter=',')
     # np.savetxt('../../output/Bflux/Bconvection_rate/azimuthal_convection_rate.csv',azimuthal_convection_rate_all,delimiter=',')
     # np.savetxt('../../output/Bflux/Bconvection_rate/azimuthal_convection_rate_1150.csv',azimuthal_convection_rate_all,delimiter=',')
-    np.save('../../output/Bflux/Bconvection_rate/az_conv_MLT.npy',flux_change)
+    # np.save('../../output/Bflux/Bconvection_rate/az_conv_MLT.npy',flux_change)
+    np.save('/home/taoshi/output/az_conv_MLT_all.npy',flux_change)
 
 
 if __name__ == "__main__":

@@ -6,7 +6,8 @@ Can be used for the keogram plot of convection channels.
 # Import analysaotr first
 
 import sys
-sys.path.append('~/analysator/')
+# sys.path.append('~/analysator/')
+sys.path.insert(0, '/home/taoshi/analysator')
 import pytools as pt
 import numpy as np
 # sys.path.append('/users/taoshi11/analysator/pyCalculations')
@@ -105,8 +106,8 @@ def main():
     # reshape the points to 2d
     points_reshaped = total_points.reshape(-1,3)
 
-    # I = np.arange(800,1612,1)
-    I = np.arange(1150,1151,1)
+    I = np.arange(501,1613,1)
+    # I = np.arange(1150,1151,1)
 
     azimuthal_all = np.full((I.shape[0],size_phi),np.nan)
 
@@ -125,7 +126,7 @@ def main():
         az_conv_MLT = np.sum(az_conv_point,axis = 0) # Now it is a shape: size_phi array
         azimuthal_all[i,:] = az_conv_MLT
     
-    np.savetxt('../../output/Bflux/Bconvection_rate/azimuthal_convection_rate_1150_new.csv',az_conv_MLT,delimiter=',')
+    np.save('/home/taoshi/output/az_conv_rate_all.npy',azimuthal_all)
     # np.save('../../output/Bflux/Bconvection_rate/azimuthal_convection_rate_all_new.npy',azimuthal_all)
 
 
